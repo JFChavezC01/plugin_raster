@@ -16,7 +16,6 @@ from .raster import interfaz
 class mainMenu:
     def __init__(self, iface):
         self.iface= iface
-
     def initGui(self):
         self.IMenu = QMenu(self.iface.mainWindow())
         self.IMenu.setTitle("Raster")#este el el titulo del menu
@@ -31,3 +30,12 @@ class mainMenu:
     def startInterfaz(self):
         self.dialogo = interfaz()
         self.dialogo.show()
+        layers= QgsProject.instance().mapLayers().values()#se almacenarán todas las capas del proyecto
+        for layer in layers:#corremos las capas para ver si son de tipo raster o vector
+            if layer.type()== QgsMapLayer.VectorLayer and layer.geometryType()==QgsWkbTypes.PolygonGeometry:#la capa debe ser tipo vectoy y poligono
+                vLayer = layer
+            if layer.type() == QgsRasterLayer.RasterLayer:#la capa debe der tipo raster para que entre en la condicion
+                rLayer= layer
+                self.dialogo.ui.cmbbx1.addItem(rLayer.name())#se agregara al combobox el nombre de la capa raster
+def unload(self):
+    QgsApplication.processingRegistry().removeProvider(self.provider)

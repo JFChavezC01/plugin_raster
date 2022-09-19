@@ -20,4 +20,9 @@ class interfaz (QMainWindow): #se crea una clase para poder hacer uso de la clas
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self) 
 
+        self.ui.Btn4.clicked.connect(self.cerrar)#Se cerrara el plugin al dar clic sobre el boton4(cerrar)
+    
+    def cerrar (self):
+        self.close()
+
 
