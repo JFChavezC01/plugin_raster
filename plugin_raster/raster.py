@@ -25,4 +25,17 @@ class interfaz (QMainWindow): #se crea una clase para poder hacer uso de la clas
     def cerrar (self):
         self.close()
 
+    #
+    def nombreCmb(self): #generamos una funcion para actualizar la capa
+        layers= QgsProject.instance().mapLayers().values()#se almacenarán todas las capas del proyecto
+        for layer in layers:#corremos las capas para ver si son de tipo raster o vector
+            if layer.type()== 0:#la capa debe ser tipo vectoy y poligono
+                nomVLayer = layer.name()
+                self.dialogo.ui.Lbl1.setText(nomVLayer)#se agregara al combobox el nombre de la capa raster
+
+            if layer.type() == 1:#la capa debe der tipo raster para que entre en la condicion
+                nomRLayer = layer.name()
+                self.dialogo.ui.Lbl1.setText(nomRLayer)#se agregara al combobox el nombre de la capa raster
+
+            
 
