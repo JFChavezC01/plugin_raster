@@ -1,0 +1,16 @@
+[general]
+name=Vector
+description=ejemplo vector
+about= ejemplo vector
+category=Web
+version=0.1.0
+qgisMinimumVersion=3.0
+author=José Francisco chávez Castillo
+email=jfchavezc001@gmail.com
+tags=web,catalog,service,metadata,csw
+homepage=http://insigeo.com.mx/
+tracker=http://insigeo.com.mx/
+repository=http://insigeo.com.mx/
+experimental=False
+deprecated=False
+changelog=Version 0.3.5 (2019-12-16)
